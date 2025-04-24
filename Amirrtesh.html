@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Second-Hand Phones - Awesome Deals</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: #333;
+        }
+
+        header {
+            background: #2c3e50;
+            color: white;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            padding: 1rem;
+            background: #34495e;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #1abc9c;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 3rem 1rem;
+            background: url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3') no-repeat center/cover;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .product-card h3 {
+            padding: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .product-card p {
+            padding: 0 1rem 1rem;
+            color: #777;
+        }
+
+        .form-section {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            margin: 0 auto 3rem;
+        }
+
+        .form-section h2 {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            color: #2c3e50;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #1abc9c;
+            box-shadow: 0 0 5px rgba(26, 188, 156, 0.3);
+        }
+
+        button {
+            width: 100%;
+            padding: 1rem;
+            background: #1abc9c;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background: #16a085;
+        }
+
+        .contact-info {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .contact-info h2 {
+            margin-bottom: 1.5rem;
+            color: #2c3e50;
+        }
+
+        .contact-info p {
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 1.5rem;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        footer p {
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8rem;
+            }
+
+            nav {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .hero h2 {
+                font-size: 1.5rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .products {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Second-Hand Phones</h1>
+        <nav>
+            <a href="#home">Home</a>
+            <a href="#products">Products</a>
+            <a href="#register">Register</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <section class="hero" id="home">
+        <h2>Discover Amazing Deals on Second-Hand Phones</h2>
+        <p>High-quality, refurbished phones at unbeatable prices. Join our community today!</p>
+    </section>
+
+    <div class="container">
+        <section class="products" id="products">
+            <div class="product-card">
+                <img src="https://images.unsplash.com/photo-1598327105666-5b89351aff97" alt="Phone 1">
+                <h3>iPhone 12</h3>
+                <p>Excellent condition, 128GB, $400</p>
+            </div>
+            <div class="product-card">
+                <img src="https://cnnespanol.cnn.com/wp-content/uploads/2021/02/Galaxy-S21-Ultra-caracteristicas.jpg?resize=250" alt="Phone 2">
+                <h3>Samsung Galaxy S21</h3>
+                <p>Like new, 256GB, $350</p>
+            </div>
+            <div class="product-card">
+                <img src="https://m-cdn.phonearena.com/images/review/5269-wide-two_1200/Google-Pixel-6-review-big-brain-small-price.jpg" alt="Phone 3">
+                <h3>Google Pixel 6</h3>
+                <p>Great deal, 128GB, $300</p>
+            </div>
+            <div class="product-card">
+                <img src="https://media.suara.com/pictures/970x544/2024/01/08/95629-vivo-y28-5g.jpg" alt="Phone 4">
+                <h3>vivo y28</h3>
+                <p>Good Cndition, 128GB, $100</p>
+            </div>
+            <div class="product-card">
+                <img src="https://m-cdn.phonearena.com/images/article/169497-wide-two_800/The-mid-range-OnePlus-Nord-N30-5G-is-a-hot-spring-bargain-at-a-rare-100-discount.jpg?1744729691" alt="Phone 5">
+                <h3>OnPluse NORD N30</h3>
+                <p>Like new, 128GB, $175</p>
+            </div>
+            <div class="product-card">
+                <img src="https://www.ghacks.net/wp-content/uploads/2023/07/456-scaled.jpg" alt="Phone 5">
+                <h3>Nothing 2</h3>
+                <p>Great deal, 128GB, $165</p>
+            </div>
+            <div class="product-card">
+                <img src="https://www.androidauthority.com/wp-content/uploads/2023/08/Redmi-12-5G-scaled.jpg" alt="Phone 6">
+                <h3>redmi 12</h3>
+                <p>Good Condition, 128GB, $150</p>
+            </div>
+            <div class="product-card">
+                <img src="https://images.indianexpress.com/2024/05/infinix-gt-20-pro-review5.jpg" alt="Phone 5">
+                <h3>infinix gt 20 pro</h3>
+                <p>Great deal, 128GB, $185</p>
+            </div>
+        </section>
+
+        <section class="form-section" id="register">
+            <h2>Register Now</h2>
+            <div id="form-container">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" placeholder="Enter your name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" placeholder="Enter your email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="tel" id="phone" placeholder="Enter your phone number" required>
+                </div>
+                <div class="form-group">
+                    <label for="device">Preferred Device</label>
+                    <select id="device" required>
+                        <option value="" disabled selected>Select a device</option>
+                        <option value="iphone">iPhone</option>
+                        <option value="samsung">Samsung</option>
+                        <option value="google">Google Pixel</option>
+                        <option value="google">vivo</option>
+                        <option value="google">OnPluse</option>
+                        <option value="google">Nothing</option>
+                        <option value="google">redmi </option>
+                        <option value="google">infinix</option>
+                    
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <button onclick="handleSubmit()">Submit</button>
+            </div>
+        </section>
+
+        <section class="contact-info" id="contact">
+            <h2>Contact Us</h2>
+            <p>Email: support@secondhandphones.com</p>
+            <p>Phone: +1 (555) 123-4567</p>
+            <p>Address: 123 Tech Street, Gadget City, TX 12345</p>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Awesome Second-Hand Phones. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function handleSubmit() {
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const device = document.getElementById('device').value;
+
+            if (name && email && phone && device) {
+                alert(`Thank you, ${name}! Your registration for a ${device} has been submitted. We'll contact you at ${email}.`);
+                document.getElementById('name').value = '';
+                document.getElementById('email').value = '';
+                document.getElementById('phone').value = '';
+                document.getElementById('device').value = '';
+            } else {
+                alert('Please fill out all fields.');
+            }
+        }
+    </script>
+</body>
+</html>
