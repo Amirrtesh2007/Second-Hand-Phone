@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - Second-Hand Phones</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: #333;
+        }
+
+        header {
+            background: #2c3e50;
+            color: white;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+        }
+
+        .checkout-form {
+            margin: 2rem 1rem;
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            font-weight: bold;
+        }
+
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 0.8rem;
+            margin-top: 0.5rem;
+            font-size: 1rem;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            width: 100%;
+            padding: 1rem;
+            background-color: #2c3e50;
+            color: white;
+            border: none;
+            font-size: 1.2rem;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #34495e;
+        }
+
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 1.5rem;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        footer p {
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Checkout</h1>
+    </header>
+
+    <section class="checkout-form">
+        <h2>Your Order</h2>
+        <div id="order-summary"></div>
+
+        <h3>Billing Information</h3>
+        <form id="checkout-form">
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" placeholder="Enter your name" required>
+            </div>
+            <div class="form-group">
+                <label for="address">Address</label>
+                <input type="text" id="address" placeholder="Enter your address" required>
+            </div>
+            <div class="form-group">
+                <label for="payment">Payment Method</label>
+                <select id="payment" required>
+                    <option value="" disabled selected>Select payment method</option>
+                    <option value="credit">Credit Card</option>
+                    <option value="debit">Debit Card</option>
+                    <option value="upi">UPI</option>
+                    <option value="cod">Cash on Delivery</option>
+                </select>
+            </div>
+
+            <button type="submit">Place Order</button>
+        </form>
+
+        <div id="order-confirmation" style="display:none;">
+            <p>Thank you! Your order has been placed.</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Awesome Second-Hand Phones. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const productName = urlParams.get('product');
+        const productPrice = urlParams.get('price');
+
+        document.getElementById('order-summary').innerHTML = `
+            <p><strong>Product:</strong> ${productName}</p>
+            <p><strong>Price:</strong> ₹${productPrice}</p>
+        `;
+
+        document.getElementById('checkout-form').addEventListener('submit', function (event) {
+            event.preventDefault();
+            const name = document.getElementById('name').value;
+            const address = document.getElementById('address').value;
+            const paymentMethod = document.getElementById('payment').value;
+
+            if (name && address && paymentMethod) {
+                document.getElementById('order-confirmation').style.display = 'block';
+                document.getElementById('checkout-form').style.display = 'none';
+            } else {
+                alert("Please fill out all fields.");
+            }
+        });
+    </script>
+</body>
+</html>
